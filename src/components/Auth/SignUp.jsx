@@ -20,7 +20,7 @@ const SignUp = () => {
         const token = res.data.token;
         console.log(token);
         localStorage.setItem("tks", JSON.stringify(token));
-        navigate("/");
+        navigate("/dashboard");
         console.log(res);
       })
       .catch((err) => console.log(err));

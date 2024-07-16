@@ -22,7 +22,7 @@ const LogIn = () => {
         // console.log(token);
         localStorage.setItem("tks", JSON.stringify(token));
 
-        navigate("/");
+        navigate("/dashboard");
       })
       .catch((err) => console.log(err));
     setTok(true);

@@ -5,13 +5,20 @@ import { Link } from "react-router-dom";
 const GetAllusers = () => {
   const [myUser, setMyUser] = useState([]);
   useEffect(() => {
+    console.log("i m useeffetct");
     const fetchData = async () => {
-      const res = await axios.get("http://localhost:8005/users/", {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("tks")}`,
-        },
-      });
-      setMyUser(res.data);
+      try {
+        const res = await axios.get("http://localhost:8005/users/", {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("tks")}`,
+          },
+        });
+        console.log(res.data);
+        setMyUser(res.data);
+      } catch (err) {
+        console.log(err);
+        setMyUser(null);
+      }
     };
     fetchData();
   }, []);
@@ -28,13 +35,17 @@ const GetAllusers = () => {
         </div>
       </div>
       <div>
-        {myUser.map((item, index) => {
-          return (
-            <div className=" " key={index}>
-              <div>{item.username}</div>
-            </div>
-          );
-        })}
+        {!myUser ? (
+          <div> session expired </div>
+        ) : (
+          myUser.map((item, index) => {
+            return (
+              <div className=" " key={index}>
+                <div>{item.username}</div>
+              </div>
+            );
+          })
+        )}
       </div>
     </div>
   );
