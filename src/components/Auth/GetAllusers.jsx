@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import NewSignUp from "./NewSignUp";
 
 const GetAllusers = () => {
   const [myUser, setMyUser] = useState([]);
@@ -36,7 +37,7 @@ const GetAllusers = () => {
       </div>
       <div>
         {!myUser ? (
-          <div> session expired </div>
+          <div> session expired<NewSignUp/> </div>
         ) : (
           myUser.map((item, index) => {
             return (
