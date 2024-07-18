@@ -2,7 +2,6 @@ import React from "react";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import SignUp from "./Auth/SignUp";
 import LogIn from "./Auth/LogIn";
-import GetAllusers from "./Auth/GetAllusers";
 import Dashboard from "./Dashboard";
 
 const route = createBrowserRouter([
@@ -16,11 +15,7 @@ const route = createBrowserRouter([
   },
   {
     path: "/",
-    element: <GetAllusers />,
-  },
-  {
-    path: "/dashboard",
-    element: <Dashboard/>,
+    element: <Dashboard />,
   },
 ]);
 

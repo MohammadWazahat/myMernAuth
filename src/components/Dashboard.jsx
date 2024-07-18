@@ -4,17 +4,6 @@ import { Link } from "react-router-dom";
 
 const Dashboard = () => {
   const [myUser, setMyUser] = useState([]);
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     const res = await axios.get("http://localhost:8005/users/", {
-  //       headers: {
-  //         Authorization: `Bearer ${localStorage.getItem("tks")}`,
-  //       },
-  //     });
-  //     setMyUser(res.data);
-  //   };
-  //   fetchData();
-  // }, []);
 
   useEffect(() => {
     console.log("i m useeffetct");
